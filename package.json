@@ -21,7 +21,9 @@
   "homepage": "https://github.com/melliottgithub/mce#readme",
   "description": "",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@babel/preset-react": "^7.12.13",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "html-webpack-plugin": "^5.1.0",
     "mongoose": "^5.11.17",

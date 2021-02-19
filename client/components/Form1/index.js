@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import {API_URL} from '../../constants';
 
-const Form = ({setCurrentStep}) => {
+const Form = ({setCurrentStep , setCurrentId}) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -22,9 +24,23 @@ const Form = ({setCurrentStep}) => {
 
     const handleOnClick = (e) => {
         e.preventDefault();
-        setCurrentStep(1)
-        console.log("clicked")
-    }
+
+        const body = {
+            name,
+            email,
+            password
+        }
+
+        axios.post(API_URL , body)
+            .then( response => {
+                console.log(response);
+                setCurrentId(response.data.data.data._id)
+                setCurrentStep(1)
+
+            })
+            .catch(err => console.error(err));
+
+        }
 
     return (
         <form>

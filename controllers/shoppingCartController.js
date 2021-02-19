@@ -42,3 +42,30 @@ exports.modifyShoppingCart =  async (req , res) => {
             }
         })
 }
+
+exports.deleteShoppingCart = async ( req , res ) => {
+    await ShoppingCart.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+        status: 'success',
+        message : 'Deleted'
+    })
+}
+
+exports.getShoppingCartById = async ( req , res ) => {
+    const shoppingCart = await ShoppingCart.findById(req.params.id);
+
+    res.status(200).json({
+        status: 'success',
+        data : shoppingCart
+    })
+}
+
+exports.getAllShoppingCarts = async ( req , res ) => {
+    const shoppingCarts = await ShoppingCart.find({});
+
+    res.status(200).json({
+        status: 'success',
+        data : shoppingCarts
+    })
+}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import {API_URL} from '../../constants';
 
-const Form3 = ({setCurrentStep}) => {
+const Form3 = ({setCurrentStep , currentId}) => {
     const [creditCard, setCreditCard] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCVV] = useState(0);
@@ -26,10 +28,21 @@ const Form3 = ({setCurrentStep}) => {
         setZipCode(value);
     }
 
-    const handleOnClick = (e) => {
+    const handleOnClick = async (e) => {
         e.preventDefault();
-        setCurrentStep(3)
-        console.log("clicked")
+        try{
+            const body = {
+                creditCard,
+                expiryDate,
+                cvv,
+                billingZipCode : zipCode
+            }
+            await axios.patch(`${API_URL}/${currentId}`,body )
+            setCurrentStep(3)
+        } catch(err){
+
+        }
+
     }
 
     return (

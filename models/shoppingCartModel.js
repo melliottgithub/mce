@@ -22,13 +22,12 @@ const shoppingCartSchema = new mongoose.Schema({
             line2 : String,
             city: String,
             state : String,
-            zipCode: Number,
-            phoneNumber: Number
+            zipCode: String,
         },
     creditCard :String,
-    expiryDate: Date,
-    ccv: String,
-    billingZipCode: Number
+    expiryDate: String,
+    cvv: Number,
+    billingZipCode: String
 });
 
 const ShoppingCart = mongoose.model('ShoppingCart', shoppingCartSchema)

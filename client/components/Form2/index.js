@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import {API_URL} from '../../constants';
 
-const Form2 = ({setCurrentStep}) => {
+const Form2 = ({setCurrentStep , currentId}) => {
     const [line1, setLine1] = useState("");
     const [line2, setLine2] = useState("");
     const [city, setCity] = useState("");
@@ -15,10 +17,20 @@ const Form2 = ({setCurrentStep}) => {
 
     const handleOnClick = (e) => {
         e.preventDefault();
-        setCurrentStep(2)
-        console.log("clicked")
-    }
+        const address = {
+            line1,
+            line2,
+            city,
+            state,
+            zipCode,
+        }
 
+        axios.patch(`${API_URL}/${currentId}`, { address , phone })
+            .then( response => {
+                setCurrentStep(2)
+            })
+            .catch(err => console.error(err));
+    }
     return (
         <form>
             <input type="text" placeholder="line1" value={line1} onChange={handleOnChange(setLine1)} />

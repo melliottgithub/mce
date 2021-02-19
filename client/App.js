@@ -13,11 +13,12 @@ const Steps = [
 
 const App = () => {
   const [currentStep,setCurrentStep] = useState(0);
+  const [currentId , setCurrentId ] = useState(null)
   const Form = Steps[currentStep];
 
   return (
   <Fragment>
-      <Form setCurrentStep={setCurrentStep} />
+      <Form currentId={currentId} setCurrentId={setCurrentId} setCurrentStep={setCurrentStep} />
   </Fragment>
 
     )

@@ -7,11 +7,11 @@ const app = express();
 
 // middlewares
 app.use(express.json());
-
+app.use('/', express.static(__dirname + '/dist'))
 // routes
 app.use('/api/shoppingcart', shoppingCartRouter);
 
-const PORT = 3000;
+const PORT = 3002;
 
 app.get('/', (req, res) => {
   res.send(`test`)

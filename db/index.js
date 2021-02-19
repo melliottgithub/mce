@@ -6,6 +6,6 @@ const connectionString = "mongodb+srv://admin:passwordtooweak@mce.ofbft.mongodb.
 module.exports = mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify:false
+  useCreateIndex: true,
+  useFindAndModify: false
 }).then(() => console.log("DB connection works"));

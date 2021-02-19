@@ -1,5 +1,6 @@
 const express = require('express');
-const { createShoppingCart , modifyShoppingCart } = require('../controllers/shoppingCartController')
+const { createShoppingCart , modifyShoppingCart } = require('../controllers/shoppingCartController');
+
 const router = express.Router();
 
 router

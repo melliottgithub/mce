@@ -3,7 +3,7 @@ const ShoppingCart = require('../models/shoppingCartModel');
 exports.createShoppingCart = (req , res) => {
     // res.status(200).json({message : 'create shopping cart'})
 
-    ShoppingCart.create(req.body ).then((shoppingCart) => {
+    ShoppingCart.create(req.body).then((shoppingCart) => {
         res.status(201)
         .json({
             status : 'success',
